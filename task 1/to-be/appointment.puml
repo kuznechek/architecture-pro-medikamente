@@ -1,0 +1,35 @@
+@startuml
+title DFD - Запись пациента на приём (To-Be)
+
+skinparam componentStyle rectangle
+
+actor "Пациент" as Patient
+actor "Администратор" as Admin
+actor "Врач" as Doctor
+
+database "Общий диск (зашифрован)" as SharedDisk
+database "Excel: Журнал приёма" as ExcelJournal
+database "Сканы медкарт (AES-256)" as Scans
+database "Система тегирования" as Tagging
+database "SIEM аудит" as SIEM
+
+rectangle "1. Приём звонка/визита" as Process1
+rectangle "2. Внесение в журнал (с тегированием)" as Process2
+rectangle "3. Передача данных врачу (TLS)" as Process3
+rectangle "4. Сканирование и шифрование карты" as Process4
+
+Patient --> Process1
+Process1 --> Admin : устно (без записи)
+Admin --> Process2
+Process2 --> Tagging : автоматическое тегирование PII
+Tagging --> ExcelJournal : данные с тегами
+ExcelJournal --> SharedDisk : шифрование (AES-256)
+Admin --> Process3
+Process3 --> Doctor : TLS, доступ по роли
+Doctor --> Process4
+Process4 --> Scans : шифрование на лету
+Scans --> SharedDisk
+Process3 --> SIEM : логирование доступа
+Process2 --> SIEM : логирование создания записи
+
+@enduml

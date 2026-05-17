@@ -1,0 +1,34 @@
+@startuml
+title DFD - Финансы (As-Is)
+
+skinparam componentStyle rectangle
+
+actor "Пациент" as Patient
+actor "Администратор" as Admin
+actor "Бухгалтер" as Accountant
+
+database "ККМ" as KKM
+database "1С:Бухгалтерия" as OneCBuh
+database "Общий диск" as SharedDisk
+database "Excel: Учёт платежей" as ExcelPayments
+
+rectangle "1. Приём оплаты" as Process1
+rectangle "2. Пробив чека" as Process2
+rectangle "3. Выгрузка в 1С" as Process3
+rectangle "4. Ручная запись в Excel" as Process4
+rectangle "5. Сверка данных" as Process5
+
+Patient --> Process1
+Process1 --> Admin
+Admin --> Process2
+Process2 --> KKM
+KKM --> Process3
+Process3 --> OneCBuh
+Admin --> Process4
+Process4 --> ExcelPayments
+ExcelPayments --> SharedDisk
+Accountant --> Process5
+Process5 --> OneCBuh
+Process5 --> ExcelPayments
+
+@enduml

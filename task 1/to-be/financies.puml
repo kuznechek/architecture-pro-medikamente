@@ -1,0 +1,34 @@
+@startuml
+title DFD - Финансы и оплаты (To-Be)
+
+skinparam componentStyle rectangle
+
+actor "Пациент" as Patient
+actor "Администратор" as Admin
+actor "Бухгалтер" as Accountant
+
+database "ККМ (с шифрованием канала)" as KKM
+database "1С:Бухгалтерия (шифрование БД)" as OneCBuh
+database "Медицинская ИС" as MedicalIS
+database "Шлюз шифрования" as Gateway
+database "SIEM" as SIEM
+
+rectangle "1. Оплата через ККМ" as Process1
+rectangle "2. Передача в 1С (TLS 1.3)" as Process2
+rectangle "3. Автоматическая запись в МИС" as Process3
+rectangle "4. Сверка" as Process4
+
+Patient --> Process1
+Process1 --> Admin
+Admin --> KKM
+KKM --> Gateway : шифрование
+Gateway --> Process2
+Process2 --> OneCBuh
+KKM --> Process3
+Process3 --> MedicalIS : обезличенные данные
+Accountant --> Process4
+Process4 --> OneCBuh
+Process4 --> MedicalIS : API сверки
+Process4 --> SIEM : лог сверки
+
+@enduml

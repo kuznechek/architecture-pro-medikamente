@@ -1,0 +1,33 @@
+@startuml
+title DFD - Учёт лечения и анализов (To-Be)
+
+skinparam componentStyle rectangle
+
+actor "Врач" as Doctor
+actor "Лаборант" as Laborant
+
+database "Защищённая БД" as SecureDB
+database "Модуль тегирования" as Tagging
+database "DLP" as DLP
+database "SIEM" as SIEM
+database "Бумажные карты" as PaperCards
+
+rectangle "1. Внесение диагноза" as Process1
+rectangle "2. Прикрепление анализов" as Process2
+rectangle "3. Запись в БД с тегированием" as Process3
+rectangle "4. Хранение бумажных кар" as Process4
+
+Doctor --> Process1
+Process1 --> SecureDB : AES-256 + TLS
+Doctor --> Process2
+Laborant --> Process2
+Process2 --> Tagging : Medical_Secret тег
+Tagging --> SecureDB
+Doctor --> Process3
+Process3 --> SecureDB
+Process3 --> SIEM : аудит записи
+Process4 --> PaperCards : журнал выдачи
+PaperCards --> SIEM : логирование
+SecureDB --> DLP : мониторинг утечек
+
+@enduml
