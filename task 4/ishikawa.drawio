@@ -1,0 +1,124 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Исикава - узкие места миграции" id="ishikawa">
+    <mxGraphModel dx="1028" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Fq25dARzL_fm1D_3ToJO-2" value="" style="shape=flexArrow;endArrow=classic;startArrow=none;html=1;fillColor=light-dark(#16447B, #223b58);strokeColor=#001DBC;width=20;endSize=10;fontColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="200" as="sourcePoint" />
+            <mxPoint x="810" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fq25dARzL_fm1D_3ToJO-3" value="" style="shape=flexArrow;endArrow=classic;startArrow=none;html=1;fillColor=light-dark(#16447B, #223b58);strokeColor=#001DBC;width=20;endSize=10;fontColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="640" as="sourcePoint" />
+            <mxPoint x="810" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fq25dARzL_fm1D_3ToJO-4" value="" style="shape=flexArrow;endArrow=classic;startArrow=none;html=1;fillColor=light-dark(#16447B, #223b58);strokeColor=#001DBC;width=20;endSize=10;fontColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="930" y="200" as="sourcePoint" />
+            <mxPoint x="1130" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fq25dARzL_fm1D_3ToJO-5" value="" style="shape=flexArrow;endArrow=classic;startArrow=none;html=1;fillColor=light-dark(#16447B, #223b58);strokeColor=#001DBC;width=20;endSize=10;fontColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="930" y="640" as="sourcePoint" />
+            <mxPoint x="1130" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="head" value="Снижение производительности /&lt;br&gt;узкие места при масштабировании" style="ellipse;whiteSpace=wrap;html=1;fillColor=#582B36;strokeColor=#6F0000;fontSize=14;fontStyle=1;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="1300" y="320" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="spine" value="" style="endArrow=none;html=1;strokeWidth=3;fontColor=#FFFFFF;" parent="1" source="head" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="420" as="targetPoint" />
+            <mxPoint x="1300" y="420" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cat1" value="" style="shape=flexArrow;endArrow=classic;startArrow=none;html=1;fillColor=light-dark(#16447B, #223b58);strokeColor=#001DBC;width=20;endSize=10;fontColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="200" as="sourcePoint" />
+            <mxPoint x="500" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cat1_label" value="Инфраструктура" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="320" y="180" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="i1" value="Недостаточная пропускная способность сети между филиалами" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="290" y="230" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i2" value="Нехватка CPU/RAM на серверах при 5x нагрузке" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="290" y="280" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="i3" value="Дисковая подсистема (IOPS) – узкое место для PostgreSQL" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="290" y="330" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cat2_label" value="ПО" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="670" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="Debezium отстаёт при высокой частоте изменений (WAL) → лаги в ClickHouse" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="580" y="240" width="220" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="ClickHouse не оптимизирован под частые обновления (только вставки)" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="580" y="300" width="220" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="Бэкенд-сервис – единая точка отказа без репликации" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="580" y="350" width="220" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="cat3_label" value="Интеграция" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="990" y="180" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="int1" value="Старые 1С (файловый режим) не выдержат 5x нагрузки" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="920" y="240" width="220" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="int2" value="ККМ не поддерживает потоковую передачу в Kafka (только OLE/TCP в 1С)" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="915" y="287.5" width="230" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="int3" value="Интеграция с лабораториями – разные форматы, ручная выгрузка" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="920" y="345" width="220" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="cat4" value="" style="shape=flexArrow;endArrow=classic;startArrow=none;html=1;fillColor=light-dark(#16447B, #223b58);strokeColor=#001DBC;width=20;endSize=10;fontColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="640" as="sourcePoint" />
+            <mxPoint x="500" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cat4_label" value="Персонал" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="320" y="650" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" value="Администраторы не обучены работе с новой ИС → ошибки ввода" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="280" y="465" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="Нехватка DevOps / SRE для поддержки Kafka и ClickHouse" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="280" y="520" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cat5_label" value="Процессы" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="670" y="650" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pr1" value="Отсутствие CI/CD для выкатки обновлений Kafka/ClickHouse" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="590" y="465" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pr2" value="Нет плана миграции данных из Excel – дублирование, потеря истории" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="590" y="515" width="220" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="pr3" value="Отсутствие мониторинга и алертинга на новых компонентах" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="590" y="570" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cat6_label" value="Безопасность" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="980" y="650" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sec1" value="Ключи шифрования хранятся в коде / env – риск утечки" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="920" y="460" width="220" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="sec2" value="Нет ротации TLS-сертификатов – внезапный отказ API" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="920" y="515" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sec3" value="Не настроен аудит доступа в ClickHouse (аналитики могут подобрать псевдонимы)" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="920" y="565" width="220" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
