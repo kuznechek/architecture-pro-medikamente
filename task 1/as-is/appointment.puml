@@ -1,0 +1,32 @@
+@startuml
+title DFD - Запись пациента на приём (As-Is)
+
+skinparam componentStyle rectangle
+
+actor "Пациент" as Patient
+actor "Администратор" as Admin
+actor "Врач" as Doctor
+
+database "Общий диск\n(шара)" as SharedDisk
+database "Excel: Журнал приёма" as ExcelJournal
+database "Сканы медкарт" as Scans
+
+rectangle "1. Приём звонка/визита" as Process1
+rectangle "2. Внесение в журнал" as Process2
+rectangle "3. Передача данных врачу" as Process3
+rectangle "4. Добавление скана карты" as Process4
+
+Patient --> Process1 : Запрос на запись
+Process1 --> Admin : Информация о пациенте
+Admin --> Process2
+Process2 --> ExcelJournal : Запись данных
+ExcelJournal --> SharedDisk : Файл хранится
+
+Admin --> Process3
+Process3 --> Doctor : Уведомление
+
+Doctor --> Process4
+Process4 --> Scans : Новая карта? Скан
+Scans --> SharedDisk : Хранение сканов
+
+@enduml

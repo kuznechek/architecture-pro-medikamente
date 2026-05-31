@@ -1,0 +1,116 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram id="jdcuEjAoU0X_MZJrvVkE" name="Страница-2">
+    <mxGraphModel dx="1895" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PYrmDavYbSOhvBWfek3j-1" value="МЕДИКАМЕНТЕ [Целевая архитектура +&amp;nbsp;&lt;span style=&quot;color: rgb(237, 237, 237); font-size: 12px; font-weight: 400; text-align: center; text-wrap-mode: nowrap;&quot;&gt;Classification Engine&lt;/span&gt;]" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=none;strokeColor=#666666;arcSize=10;fontSize=16;fontStyle=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="760" y="250" width="1200" height="910" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-2" value="Пациент" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#6C6477;strokeColor=#4D4D4D;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="580" y="450" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-3" value="Администратор" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="580" y="610" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-4" value="Врач" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="580" y="750" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-5" value="Бухгалтер" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="580" y="930" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-6" value="Единый бэкенд-сервис (BFF + Privacy Gateway)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="780" y="550" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-7" value="PostgreSQL (оперативные данные: PII, медкарты, записи, аудит)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="805" y="320" width="340" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-8" value="Debezium (CDC)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="380" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-9" value="Kafka (топики: пациенты, записи, анализы)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="516" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="owsCfvn1_ErOFgOlRNTD-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-10" target="owsCfvn1_ErOFgOlRNTD-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-10" value="Presidio (анонимизация)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="662" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-11" value="ClickHouse (обезличенные данные, агрегаты)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="939" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-12" value="Airflow (оркестрация DAG для отчётов)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="1080" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-13" value="MinIO (шифрованные файлы)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="380" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-14" value="Keycloak (IAM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;fontColor=#ffffff;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="690" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-15" value="HTTPS / TLS 1.3" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.25;entryDx=0;entryDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-2" target="PYrmDavYbSOhvBWfek3j-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-16" value="HTTPS / TLS 1.3" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.75;entryDx=0;entryDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-3" target="PYrmDavYbSOhvBWfek3j-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-17" value="HTTPS / TLS 1.3,&lt;div&gt;обфускация&lt;/div&gt;" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;entryX=0.25;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-4" target="PYrmDavYbSOhvBWfek3j-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-18" value="HTTPS / обезличенные данные" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-5" target="PYrmDavYbSOhvBWfek3j-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-19" value="SQL (шифрованные PII)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;exitX=0.75;exitY=0;exitDx=0;exitDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-6" target="PYrmDavYbSOhvBWfek3j-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-20" value="PUT / GET файлов (TLS)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.25;exitDx=0;exitDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-6" target="PYrmDavYbSOhvBWfek3j-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-21" value="JWT валидация (OpenID)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;dashed=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-6" target="PYrmDavYbSOhvBWfek3j-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-22" value="Читает WAL (логи изменений)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-7" target="PYrmDavYbSOhvBWfek3j-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-23" value="Отправляет события CDC" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-8" target="PYrmDavYbSOhvBWfek3j-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-24" value="Подписка на топики, чтение событий" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-9" target="PYrmDavYbSOhvBWfek3j-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-25" value="Запись обезличенных данных" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" edge="1" parent="1" source="owsCfvn1_ErOFgOlRNTD-1" target="PYrmDavYbSOhvBWfek3j-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-26" value="Чтение агрегатов для отчётов" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;dashed=1;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-12" target="PYrmDavYbSOhvBWfek3j-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PYrmDavYbSOhvBWfek3j-27" value="Может читать справочники (PII не трогает)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;dashed=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-12" target="PYrmDavYbSOhvBWfek3j-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="owsCfvn1_ErOFgOlRNTD-3" value="" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" edge="1" parent="1" source="PYrmDavYbSOhvBWfek3j-10" target="owsCfvn1_ErOFgOlRNTD-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1760" y="750" as="sourcePoint" />
+            <mxPoint x="1760" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="owsCfvn1_ErOFgOlRNTD-1" value="&lt;span style=&quot;color: rgb(237, 237, 237); text-wrap-mode: nowrap;&quot;&gt;Classification Engine&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;arcSize=10;strokeColor=#6F0000;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="803" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5TeCJAHewBhnOC6ODDcn-1" value="Аналитик" style="shape=mxgraph.c4.person2;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="2140" y="921" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rO_pWDqqql2VMXBuCqJR-3" value="Доступ к Aggregates" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;exitX=0.013;exitY=0.474;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5TeCJAHewBhnOC6ODDcn-1" target="PYrmDavYbSOhvBWfek3j-11">
+          <mxGeometry x="0.0074" y="-18" relative="1" as="geometry">
+            <mxPoint x="1760" y="890" as="sourcePoint" />
+            <mxPoint x="1760" y="976" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="2035" y="968" />
+            </Array>
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,91 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="C4 с Kafka Debezium Airflow (подписи связей)" id="c4-streaming-labels">
+    <mxGraphModel dx="1869" dy="1173" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="boundary" value="МЕДИКАМЕНТЕ [Целевая архитектура]" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=none;strokeColor=#666666;arcSize=10;fontSize=16;fontStyle=1;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="272" y="150" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="patient" value="Пациент" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#6C6477;strokeColor=#4D4D4D;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="92" y="350" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" value="Администратор" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="92" y="510" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="doctor" value="Врач" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="92" y="650" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="accountant" value="Бухгалтер" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="92" y="830" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="api" value="Единый бэкенд-сервис (BFF + Privacy Gateway)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="292" y="450" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" value="PostgreSQL (оперативные данные: PII, медкарты, записи, аудит)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="317" y="220" width="340" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="debezium" value="Debezium (CDC)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="1102" y="280" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="kafka" value="Kafka (топики: пациенты, записи, анализы)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="1102" y="460" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="presidio" value="Presidio (анонимизация)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="1102" y="600" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="clickhouse" value="ClickHouse (обезличенные данные, агрегаты)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="1102" y="730" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="airflow" value="Airflow (оркестрация DAG для отчётов)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="1102" y="910" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="minio" value="MinIO (шифрованные файлы)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="712" y="280" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="keycloak" value="Keycloak (IAM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;fontColor=#ffffff;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="752" y="590" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1" value="HTTPS / TLS 1.3" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.25;entryDx=0;entryDy=0;labelBackgroundColor=none;" parent="1" source="patient" target="api" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" value="HTTPS / TLS 1.3" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.75;entryDx=0;entryDy=0;labelBackgroundColor=none;" parent="1" source="admin" target="api" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" value="HTTPS / TLS 1.3,&lt;div&gt;обфускация&lt;/div&gt;" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;entryX=0.25;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=none;" parent="1" source="doctor" target="api" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4" value="HTTPS / обезличенные данные" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" parent="1" source="accountant" target="api" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel5" value="SQL (шифрованные PII)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;exitX=0.75;exitY=0;exitDx=0;exitDy=0;labelBackgroundColor=none;" parent="1" source="api" target="postgres" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel6" value="PUT / GET файлов (TLS)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.25;exitDx=0;exitDy=0;labelBackgroundColor=none;" parent="1" source="api" target="minio" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel7" value="JWT валидация (OpenID)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;dashed=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;labelBackgroundColor=none;" parent="1" source="api" target="keycloak" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel8" value="Читает WAL (логи изменений)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;" parent="1" source="postgres" target="debezium" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel9" value="Отправляет события CDC" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" parent="1" source="debezium" target="kafka" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel10" value="Подписка на топики, чтение событий" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" parent="1" source="kafka" target="presidio" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel11" value="Запись обезличенных данных" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;" parent="1" source="presidio" target="clickhouse" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel12" value="Чтение агрегатов для отчётов" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;dashed=1;labelBackgroundColor=none;" parent="1" source="airflow" target="clickhouse" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel13" value="Может читать справочники (PII не трогает)" style="endArrow=blockThin;html=1;strokeWidth=1;endFill=1;edgeStyle=orthogonalEdgeStyle;dashed=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=none;" parent="1" source="airflow" target="postgres" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

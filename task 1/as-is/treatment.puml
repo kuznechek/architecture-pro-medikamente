@@ -1,0 +1,30 @@
+@startuml
+title DFD - Учёт лечения и анализов (As-Is)
+
+skinparam componentStyle rectangle
+
+actor "Врач" as Doctor
+actor "Лаборант" as Laborant
+
+database "Общий диск" as SharedDisk
+database "Excel: Результаты анализов" as ExcelAnalyses
+database "Сканы медкарт" as Scans
+database "Бумажные карты" as PaperCards
+
+rectangle "1. Внесение диагноза и лечения" as Process1
+rectangle "2. Сканирование медкарты" as Process2
+rectangle "3. Внесение результатов анализов" as Process3
+rectangle "4. Хранение бумажной карты" as Process4
+
+Doctor --> Process1
+Process1 --> Scans
+Doctor --> Process2
+Process2 --> Scans
+Scans --> SharedDisk
+Laborant --> Process3
+Process3 --> ExcelAnalyses
+ExcelAnalyses --> SharedDisk
+Doctor --> Process4
+Process4 --> PaperCards
+
+@enduml
